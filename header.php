@@ -50,6 +50,10 @@
 		                'walker'            => new wp_bootstrap_navwalker())
 		            );
 	        	?>
+	        		<form class="navbar-form navbar-right" role="search" method="get" id="searchform" action="<?php echo home_url( '/' ); ?>">
+                        <input name="s" id="s" type="text" class="form-control" placeholder="<?php _e('Search','responsive'); ?>">
+                    </form>
+
         		</div> <!-- .navbar-collapse -->
         	</div><!-- /.container -->
 		</nav><!-- .navbar .navbar-default -->

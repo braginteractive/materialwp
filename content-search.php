@@ -9,21 +9,25 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="entry-header">
-		<?php the_title( sprintf( '<h1 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h1>' ); ?>
+	<div class="card">
+		<div class="entry-container">
+			<header class="entry-header">
+				<?php the_title( sprintf( '<h1 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h1>' ); ?>
 
-		<?php if ( 'post' == get_post_type() ) : ?>
-		<div class="entry-meta">
-			<?php materialwp_posted_on(); ?>
-		</div><!-- .entry-meta -->
-		<?php endif; ?>
-	</header><!-- .entry-header -->
+				<?php if ( 'post' == get_post_type() ) : ?>
+				<div class="entry-meta">
+					<?php materialwp_posted_on(); ?>
+				</div><!-- .entry-meta -->
+				<?php endif; ?>
+			</header><!-- .entry-header -->
 
-	<div class="entry-summary">
-		<?php the_excerpt(); ?>
-	</div><!-- .entry-summary -->
+			<div class="entry-summary">
+				<?php the_excerpt(); ?>
+			</div><!-- .entry-summary -->
 
-	<footer class="entry-footer">
-		<?php materialwp_entry_footer(); ?>
-	</footer><!-- .entry-footer -->
+			<footer class="entry-footer">
+				<?php materialwp_entry_footer(); ?>
+			</footer><!-- .entry-footer -->
+		</div> <!-- .entry-container -->
+	</div> <!-- .card -->
 </article><!-- #post-## -->

@@ -318,17 +318,17 @@ textarea {
 5.1 Links
 --------------------------------------------------------------*/
 a {
-	color: royalblue;
+	color: #337ab7;
 }
 
 a:visited {
-	color: purple;
+	
 }
 
 a:hover,
 a:focus,
 a:active {
-	color: midnightblue;
+	color: #3f51b5;
 }
 
 /*--------------------------------------------------------------
@@ -545,12 +545,24 @@ a:active {
 /*--------------------------------------------------------------
 10.1 Posts and pages
 --------------------------------------------------------------*/
+#primary {
+	word-wrap: break-word;
+	-ms-word-break: break-all;
+     /* Be VERY careful with this, breaks normal words wh_erever */
+     word-break: break-all;
+     /* Non standard for webkit */
+     word-break: break-word;
+	-webkit-hyphens: auto;
+  	-moz-hyphens: auto;
+    hyphens: auto;
+}
+
 .sticky {
 	display: block;
 }
 
 .hentry {
-	margin: 0 0 1.5em;
+	margin: 0 0 30px;
 }
 
 .byline,
@@ -598,9 +610,49 @@ a:active {
 	font-size: 80%;
 }
 
+.entry-container {
+	padding: 35px;
+}
+
+.entry-container h1{
+	margin-top: 0;
+}
+
+.entry-container h1 a{
+	color: #404040;
+}
+
+.entry-container h1 a:hover{
+	text-decoration: none;
+	color: #3f51b5;
+}
+
+.card {
+	background-color: #FFFFFF;
+	box-shadow: 0 3px 10px rgba(0,0,0,.23),0 3px 10px rgba(0,0,0,.16);
+	border-radius: 2px;
+	border: 0;
+}
+
+.card .entry-img {
+	background-color: #F4F4F4;
+}
+
 /*--------------------------------------------------------------
 10.2 Asides
 --------------------------------------------------------------*/
+#secondary {
+	word-wrap: break-word;
+	-ms-word-break: break-all;
+     /* Be VERY careful with this, breaks normal words wh_erever */
+     word-break: break-all;
+     /* Non standard for webkit */
+     word-break: break-word;
+	-webkit-hyphens: auto;
+  	-moz-hyphens: auto;
+    hyphens: auto;
+}
+
 .blog .format-aside .entry-title,
 .archive .format-aside .entry-title {
 	display: none;

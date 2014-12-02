@@ -79,45 +79,47 @@ function materialwp_posted_on() {
 	);
 
 	$posted_on = sprintf(
-		_x( 'Posted on %s', 'post date', 'materialwp' ),
+		_x( '<i class="mdi-action-schedule"></i> %s', 'post date', 'materialwp' ),
 		'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
 	);
 
 	$byline = sprintf(
-		_x( 'by %s', 'post author', 'materialwp' ),
+		_x( '<i class="mdi-action-account-circle"></i> %s', 'post author', 'materialwp' ),
 		'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
 	);
 
 	echo '<span class="posted-on">' . $posted_on . '</span><span class="byline"> ' . $byline . '</span>';
+
+	if ( 'post' == get_post_type() ) {
+		/* translators: used between list items, there is a space after the comma */
+		$categories_list = get_the_category_list( __( ', ', 'materialwp' ) );
+		if ( $categories_list && materialwp_categorized_blog() ) {
+			printf( '<span class="cat-links">' . __( '<i class="mdi-file-folder-open"></i> %1$s', 'materialwp' ) . '</span>', $categories_list );
+		}
+	}
+
+	if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
+		echo '<span class="comments-link"><i class="mdi-action-question-answer"></i> ';
+		comments_popup_link( __( 'Leave a comment', 'materialwp' ), __( '1 Comment', 'materialwp' ), __( '% Comments', 'materialwp' ) );
+		echo '</span>';
+	}
 
 }
 endif;
 
 if ( ! function_exists( 'materialwp_entry_footer' ) ) :
 /**
- * Prints HTML with meta information for the categories, tags and comments.
+ * Prints HTML for edit link.
  */
 function materialwp_entry_footer() {
-	// Hide category and tag text for pages.
-	if ( 'post' == get_post_type() ) {
-		/* translators: used between list items, there is a space after the comma */
-		$categories_list = get_the_category_list( __( ', ', 'materialwp' ) );
-		if ( $categories_list && materialwp_categorized_blog() ) {
-			printf( '<span class="cat-links">' . __( 'Posted in %1$s', 'materialwp' ) . '</span>', $categories_list );
-		}
 
-		/* translators: used between list items, there is a space after the comma */
-		$tags_list = get_the_tag_list( '', __( ', ', 'materialwp' ) );
-		if ( $tags_list ) {
-			printf( '<span class="tags-links">' . __( 'Tagged %1$s', 'materialwp' ) . '</span>', $tags_list );
-		}
-	}
-
-	if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
-		echo '<span class="comments-link">';
-		comments_popup_link( __( 'Leave a comment', 'materialwp' ), __( '1 Comment', 'materialwp' ), __( '% Comments', 'materialwp' ) );
-		echo '</span>';
-	}
+	// if ( 'post' == get_post_type() ) {
+	// /* translators: used between list items, there is a space after the comma */
+	// 	$tags_list = get_the_tag_list( '', __( ', ', 'materialwp' ) );
+	// 	if ( $tags_list ) {
+	// 		printf( '<span class="tags-links">' . __( 'Tagged %1$s', 'materialwp' ) . '</span>', $tags_list );
+	// 	}
+	// }
 
 	edit_post_link( __( 'Edit', 'materialwp' ), '<span class="edit-link">', '</span>' );
 }

@@ -662,6 +662,30 @@ a:active {
 	margin: 0 0 1.5em;
 }
 
+.entry-meta span {
+	margin-right: 20px;
+	display: inline-block;
+}
+
+.entry-meta span:last-child {
+	margin-right: 0;
+}
+
+.entry-meta span a {
+	color: #777;
+	text-decoration: none;
+	font-size: 90%;
+}
+
+.entry-meta span a:hover {
+	text-decoration: underline;
+}
+
+.entry-meta span i {
+	color: #777;
+	font-size: 80%;
+}
+
 /*--------------------------------------------------------------
 10.2 Asides
 --------------------------------------------------------------*/

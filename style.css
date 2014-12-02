@@ -653,6 +653,15 @@ a:active {
     hyphens: auto;
 }
 
+.widget-area ul {
+	margin-left: 0;
+	padding-left: 0;
+}
+
+.widget-area ul li {
+	list-style: none;
+}
+
 .blog .format-aside .entry-title,
 .archive .format-aside .entry-title {
 	display: none;

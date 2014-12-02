@@ -20,4 +20,4 @@ Without the following projects/people this theme wouldn't be possible:
 
 ## Documentation, FAQs, and More
 
-Because this version is a major rewrite of the core plugin, we’re working to create an entire site around the Boilerplate. If you’re interested, please [let me know](http://tommcfarlin.com/contact) and we’ll see what we can do.
+If you’re interested in helping or have any questions, please [let me know](http://braginteractive.com/contact).

@@ -1,14 +1,13 @@
-MaterialWP
-===
+# MaterialWP
+
 This is a starter Material Design WordPress Theme based off the Bootstrap framework.
 
 
-Getting Started
----------------
+## Getting Started
 
 Upload the theme to your WordPress Directory in the wp-content/themes/ directory
 
-# Credits
+## Credits
 
 The Material Design WordPress Theme was started in 2014 by [Brad Williams](http://twitter.com/braginteractive/).
 

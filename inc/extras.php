@@ -92,7 +92,7 @@ add_action( 'wp', 'materialwp_setup_author' );
  * Adds a class to the previous post link on single post page
  */
 function post_link_attributes_prev($output) {
-    $code = 'class="btn btn-material-indigo btn-fab btn-raised mdi-image-navigate-before"';
+    $code = 'class="btn btn-warning btn-fab btn-raised mdi-image-navigate-before"';
     return str_replace('<a href=', '<a '.$code.' href=', $output);
 }
 add_filter('previous_post_link', 'post_link_attributes_prev');
@@ -101,7 +101,7 @@ add_filter('previous_post_link', 'post_link_attributes_prev');
  * Adds a class to the next post link on single post page
  */
 function post_link_attributes_next($output) {
-    $code = 'class="btn btn-material-indigo btn-fab btn-raised mdi-image-navigate-next"';
+    $code = 'class="btn btn-warning btn-fab btn-raised mdi-image-navigate-next"';
     return str_replace('<a href=', '<a '.$code.' href=', $output);
 }
 add_filter('next_post_link', 'post_link_attributes_next');
@@ -110,7 +110,7 @@ add_filter('next_post_link', 'post_link_attributes_next');
  * Adds a class to the prev post link on blog
  */
 function posts_link_attributes_prev() {
-    return 'class="btn btn-material-indigon btn-fab btn-raised mdi-image-navigate-before"';
+    return 'class="btn btn-warning btn-fab btn-raised mdi-image-navigate-before"';
 }
 add_filter('previous_posts_link_attributes', 'posts_link_attributes_prev');
 
@@ -118,7 +118,7 @@ add_filter('previous_posts_link_attributes', 'posts_link_attributes_prev');
  * Adds a class to the next post link on blog
  */
 function posts_link_attributes_next() {
-    return 'class="btn btn-material-indigo btn-fab btn-raised mdi-image-navigate-next"';
+    return 'class="btn btn-warning btn-fab btn-raised mdi-image-navigate-next"';
 }
 add_filter('next_posts_link_attributes', 'posts_link_attributes_next');
 

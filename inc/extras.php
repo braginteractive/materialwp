@@ -87,3 +87,21 @@ function materialwp_setup_author() {
 	}
 }
 add_action( 'wp', 'materialwp_setup_author' );
+
+/**
+ * Adds a class to the previous post link
+ */
+function post_link_attributes_prev($output) {
+    $code = 'class="btn btn-info btn-fab btn-raised mdi-image-navigate-before"';
+    return str_replace('<a href=', '<a '.$code.' href=', $output);
+}
+add_filter('previous_post_link', 'post_link_attributes_prev');
+
+/**
+ * Adds a class to the next post link
+ */
+function post_link_attributes_next($output) {
+    $code = 'class="btn btn-info btn-fab btn-raised mdi-image-navigate-next"';
+    return str_replace('<a href=', '<a '.$code.' href=', $output);
+}
+add_filter('next_post_link', 'post_link_attributes_next');

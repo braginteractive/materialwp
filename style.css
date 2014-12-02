@@ -429,6 +429,8 @@ a:active {
 .post-navigation .nav-previous {
 	float: left;
 	width: 50%;
+	padding-left: 10px;
+	padding-bottom: 20px;
 }
 
 .comment-navigation .nav-next,
@@ -437,6 +439,8 @@ a:active {
 	float: right;
 	text-align: right;
 	width: 50%;
+	padding-right: 10px;
+	padding-bottom: 20px;
 }
 
 /*--------------------------------------------------------------

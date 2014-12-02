@@ -21,12 +21,12 @@ function materialwp_paging_nav() {
 		<h1 class="screen-reader-text"><?php _e( 'Posts navigation', 'materialwp' ); ?></h1>
 		<div class="nav-links">
 
-			<?php if ( get_next_posts_link() ) : ?>
-			<div class="nav-previous"><?php next_posts_link( __( '<span class="meta-nav">&larr;</span> Older posts', 'materialwp' ) ); ?></div>
+			<?php if ( get_previous_posts_link() ) : ?>
+			<div class="nav-previous"><?php previous_posts_link( __( '', 'materialwp' ) ); ?></div>
 			<?php endif; ?>
 
-			<?php if ( get_previous_posts_link() ) : ?>
-			<div class="nav-next"><?php previous_posts_link( __( 'Newer posts <span class="meta-nav">&rarr;</span>', 'materialwp' ) ); ?></div>
+			<?php if ( get_next_posts_link() ) : ?>
+			<div class="nav-next"><?php next_posts_link( __( '', 'materialwp' ) ); ?></div>
 			<?php endif; ?>
 
 		</div><!-- .nav-links -->

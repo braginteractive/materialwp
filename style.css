@@ -539,6 +539,19 @@ a:active {
 	display: none;
 }
 
+.widget ul {
+	padding: 15px;
+	margin-left: 0;
+}
+
+.widget-area ul li {
+	list-style: none;
+}
+
+.widget .textwidget, .widget #calendar_wrap, .widget .tagcloud, .widget .form-search {
+	padding: 15px;
+}
+
 /*--------------------------------------------------------------
 10.0 Content
 --------------------------------------------------------------*/
@@ -678,15 +691,6 @@ a.read-more:hover {
 	-webkit-hyphens: auto;
   	-moz-hyphens: auto;
     hyphens: auto;
-}
-
-.widget-area ul {
-	margin-left: 0;
-	padding-left: 0;
-}
-
-.widget-area ul li {
-	list-style: none;
 }
 
 .blog .format-aside .entry-title,

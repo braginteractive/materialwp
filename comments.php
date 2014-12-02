@@ -18,7 +18,7 @@ if ( post_password_required() ) {
 }
 ?>
 
-<div id="comments" class="comments-area">
+<div id="comments" class="comments-area card">
 
 	<?php // You can start editing here -- including this comment! ?>
 
@@ -64,6 +64,41 @@ if ( post_password_required() ) {
 		<p class="no-comments"><?php _e( 'Comments are closed.', 'materialwp' ); ?></p>
 	<?php endif; ?>
 
-	<?php comment_form(); ?>
+	<?php 
+	    $req = get_option( 'require_name_email' );
+	    $aria_req = ( $req ? " aria-required='true'" : '' );
+
+		$comments_args = array(
+        // change the title of send button 
+        'label_submit'=>'Submit',
+        // change the title of the reply section
+        'title_reply'=>'Leave a Comment',
+        // remove "Text or HTML to be displayed after the set of comment fields"
+        'comment_notes_after' => '',
+        // redefine your own textarea (the comment body)
+        'comment_field' => ' 
+        <div class="form-group"><textarea class="form-control floating-label" placeholder="Comments" rows="10" id="comment" name="comment" aria-required="true"></textarea></div>',
+
+        'fields' => apply_filters( 'comment_form_default_fields', array(
+
+	    'author' =>
+	      '<div class="form-group">' .
+	      '<input class="form-control floating-label" placeholder="Name" id="author" name="author" type="text" value="' . esc_attr( $commenter['comment_author'] ) .
+	      '" size="30"' . $aria_req . ' /></div>',
+
+	    'email' =>
+	      '<div class="form-group">' .
+	      '<input class="form-control floating-label" placeholder="Email" id="email" name="email" type="text" value="' . esc_attr(  $commenter['comment_author_email'] ) .
+	      '" size="30"' . $aria_req . ' /></div>',
+
+	    'url' =>
+	      '<div class="form-group">'.
+	      '<input class="form-control floating-label" placeholder="Website" id="url" name="url" type="text" value="' . esc_attr( $commenter['comment_author_url'] ) .
+	      '" size="30" /></div>'
+	    )
+	  ),
+	);
+
+	comment_form($comments_args); 	?>
 
 </div><!-- #comments -->

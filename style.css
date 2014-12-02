@@ -666,7 +666,86 @@ a:active {
 }
 
 .bypostauthor {
-	display: block;
+}
+
+.comments-area {
+	padding: 35px;
+}
+
+.comments-title, .comment-reply-title {
+	padding-bottom: 9px;
+	margin: 40px 0 20px 0;
+	border-bottom: 1px solid #eee;
+}
+
+ol.comment-list {
+	list-style:none;
+	padding-left: 0;
+}
+
+.comment-author .avatar {
+	margin-right: 25px;
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	-webkit-transition: all .2s ease-in-out;
+	-o-transition: all .2s ease-in-out;
+	transition: all .2s ease-in-out;
+	padding: 4px;
+}
+
+.comment-meta {
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.comment-details {
+	overflow: hidden;
+	zoom: 1;
+	margin-bottom: 25px;
+	padding-bottom: 25px;
+	border-bottom: 1px solid #ddd;
+}
+
+.comment-details .reply {
+	margin-top: 10px;
+}
+
+.comment-date a {
+	font-size: 11px;
+	color: #777;
+	margin-right: 10px;
+}
+
+#commentform #comment {
+	width: 100% !important;
+}
+
+#commentform #submit {
+	position: relative;
+	padding: 8px 30px;
+	border: 0;
+	margin: 10px 1px;
+	cursor: pointer;
+	border-radius: 2px;
+	text-transform: uppercase;
+	text-decoration: none;
+	color: rgba(255,255,255,.84);
+	-webkit-transition: box-shadow .28s cubic-bezier(0.4,0,.2,1);
+	transition: box-shadow .28s cubic-bezier(0.4,0,.2,1);
+	outline: 0!important;
+	box-shadow: 0 3px 10px rgba(0,0,0,.23),0 3px 10px rgba(0,0,0,.16);
+	-webkit-transition: box-shadow .28s cubic-bezier(0.4,0,.2,1);
+	transition: box-shadow .28s cubic-bezier(0.4,0,.2,1);
+
+	color: rgba(0,0,0,.84);
+	background-color: transparent;
+	border-color: #ccc;
+}
+
+#commentform #submit:hover{
+	color: #333;
+	background-color: #e6e6e6;
+	border-color: #adadad;
 }
 
 /*--------------------------------------------------------------

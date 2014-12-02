@@ -147,3 +147,8 @@ require get_template_directory() . '/inc/jetpack.php';
  * Adds a Walker class for the Bootstrap Navbar.
  */
 require get_template_directory() . '/inc/bootstrap-walker.php';
+
+/**
+ * Comments Callback.
+ */
+require get_template_directory() . '/inc/comments-callback.php';

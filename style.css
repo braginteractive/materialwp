@@ -642,6 +642,22 @@ a:active {
 	background-color: #F4F4F4;
 }
 
+.site-footer {
+	background-color: #374147;
+	padding: 40px 0;
+	color: #fff;
+}
+
+.site-footer a {
+	color: #fff;
+	opacity: 0.6;
+}
+
+.site-footer a:hover {
+	color: #fff;
+	opacity: 1;
+}
+
 /*--------------------------------------------------------------
 10.2 Asides
 --------------------------------------------------------------*/

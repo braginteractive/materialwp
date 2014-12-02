@@ -58,11 +58,7 @@ button,
 input,
 select,
 textarea {
-	color: #404040;
-	font-family: sans-serif;
-	font-size: 16px;
-	font-size: 1.6rem;
-	line-height: 1.5;
+	
 }
 
 h1,
@@ -627,6 +623,17 @@ a:active {
 }
 
 .entry-container h1 a:hover{
+	text-decoration: none;
+	color: #3f51b5;
+}
+
+a.read-more {
+	text-transform: uppercase;
+	color: #404040;
+	font-weight: 500;
+}
+
+a.read-more:hover {
 	text-decoration: none;
 	color: #3f51b5;
 }

@@ -121,3 +121,22 @@ function posts_link_attributes_next() {
     return 'class="btn btn-info btn-fab btn-raised mdi-image-navigate-next"';
 }
 add_filter('next_posts_link_attributes', 'posts_link_attributes_next');
+
+/**
+ * Custom Read More Button
+ */
+function modify_read_more_link() {
+
+	return '<p><a class="read-more" href="' . get_permalink() . '">'.__( 'Read More', 'materialwp' ).'</a></p>';
+}
+add_filter( 'the_content_more_link', 'modify_read_more_link' );
+
+/**
+ * Custom Edit Button
+ */
+function custom_edit_post_link($output) {
+
+ $output = str_replace('class="post-edit-link"', 'class="btn btn-danger btn-xs post-edit-link"', $output);
+ return $output;
+}
+add_filter('edit_post_link', 'custom_edit_post_link');

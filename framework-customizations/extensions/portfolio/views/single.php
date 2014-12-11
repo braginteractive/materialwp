@@ -31,23 +31,8 @@ get_header(); ?>
 				while ( have_posts() ) : the_post(); ?>
 
 					<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-
-						<header class="entry-header">
-							<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
-							<?php
-							if( function_exists('fw_ext_breadcrumbs') ) {
-								fw_ext_breadcrumbs();
-							}
-							?>
-							<?php
-							if( function_exists('fw_ext_feedback') ) {
-								fw_ext_feedback();
-							}
-							?>
-						</header>
-						<!-- .entry-header -->
-
-						<div class="entry-content">
+						<div class="card">
+						
 							<?php
 							$thumbnails = fw_ext_portfolio_get_gallery_images();
 
@@ -80,6 +65,23 @@ get_header(); ?>
 									</div>
 								</section>
 							<?php endif ?>
+
+							<div class="entry-container">
+							<header class="entry-header">
+								<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+								<?php
+								if( function_exists('fw_ext_breadcrumbs') ) {
+									fw_ext_breadcrumbs();
+								}
+								?>
+								<?php
+								if( function_exists('fw_ext_feedback') ) {
+									fw_ext_feedback();
+								}
+								?>
+							</header>
+							<!-- .entry-header -->
+
 							<div class="entry-content">
 								<?php
 								the_content();
@@ -91,7 +93,8 @@ get_header(); ?>
 							</div>
 							<!-- .entry-content -->
 						</div>
-						<!-- .entry-content -->
+						<!-- .entry-container -->
+					</div>
 					</article><!-- #post-## -->
 
 				<?php endwhile; ?>

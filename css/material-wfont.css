@@ -2,25 +2,25 @@
   font-family: 'RobotoDraft';
   font-style: normal;
   font-weight: 400;
-  src: local('RobotoDraft'), local('RobotoDraft-Regular'), url(https://fonts.gstatic.com/s/robotodraft/v1/0xES5Sl_v6oyT7dAKuoni4gp9Q8gbYrhqGlRav_IXfk.woff2) format('woff2'), url(https://fonts.gstatic.com/s/robotodraft/v1/0xES5Sl_v6oyT7dAKuoni7rIa-7acMAeDBVuclsi6Gc.woff) format('woff');
+  src: local('RobotoDraft'), local('RobotoDraft-Regular'), local('Roboto-Regular'), url(https://fonts.gstatic.com/s/robotodraft/v1/0xES5Sl_v6oyT7dAKuoni4gp9Q8gbYrhqGlRav_IXfk.woff2) format('woff2'), url(https://fonts.gstatic.com/s/robotodraft/v1/0xES5Sl_v6oyT7dAKuoni7rIa-7acMAeDBVuclsi6Gc.woff) format('woff');
 }
 @font-face {
   font-family: 'RobotoDraft';
   font-style: normal;
   font-weight: 500;
-  src: local('RobotoDraft Medium'), local('RobotoDraft-Medium'), url(https://fonts.gstatic.com/s/robotodraft/v1/u0_CMoUf3y3-4Ss4ci-VwXJuJo8UJJfpGKt7pXjBv4s.woff2) format('woff2'), url(https://fonts.gstatic.com/s/robotodraft/v1/u0_CMoUf3y3-4Ss4ci-VwaTA90I55Xt7owhZwpPnMsc.woff) format('woff');
+  src: local('RobotoDraft Medium'), local('RobotoDraft-Medium'), local('Roboto-Medium'), url(https://fonts.gstatic.com/s/robotodraft/v1/u0_CMoUf3y3-4Ss4ci-VwXJuJo8UJJfpGKt7pXjBv4s.woff2) format('woff2'), url(https://fonts.gstatic.com/s/robotodraft/v1/u0_CMoUf3y3-4Ss4ci-VwaTA90I55Xt7owhZwpPnMsc.woff) format('woff');
 }
 @font-face {
   font-family: 'RobotoDraft';
   font-style: normal;
   font-weight: 700;
-  src: local('RobotoDraft Bold'), local('RobotoDraft-Bold'), url(https://fonts.gstatic.com/s/robotodraft/v1/u0_CMoUf3y3-4Ss4ci-Vwf79_ZuUxCigM2DespTnFaw.woff2) format('woff2'), url(https://fonts.gstatic.com/s/robotodraft/v1/u0_CMoUf3y3-4Ss4ci-VwRbnBKKEOwRKgsHDreGcocg.woff) format('woff');
+  src: local('RobotoDraft Bold'), local('RobotoDraft-Bold'), local('Roboto-Bold'), url(https://fonts.gstatic.com/s/robotodraft/v1/u0_CMoUf3y3-4Ss4ci-Vwf79_ZuUxCigM2DespTnFaw.woff2) format('woff2'), url(https://fonts.gstatic.com/s/robotodraft/v1/u0_CMoUf3y3-4Ss4ci-VwRbnBKKEOwRKgsHDreGcocg.woff) format('woff');
 }
 @font-face {
   font-family: 'RobotoDraft';
   font-style: italic;
   font-weight: 400;
-  src: local('RobotoDraft Italic'), local('RobotoDraft-Italic'), url(https://fonts.gstatic.com/s/robotodraft/v1/er-TIW55l9KWsTS1x9bTfgeOulFbQKHxPa89BaxZzA0.woff2) format('woff2'), url(https://fonts.gstatic.com/s/robotodraft/v1/er-TIW55l9KWsTS1x9bTfoo3ZslTYfJv0R05CazkwN8.woff) format('woff');
+  src: local('RobotoDraft Italic'), local('RobotoDraft-Italic'), local('Roboto-Italic'), url(https://fonts.gstatic.com/s/robotodraft/v1/er-TIW55l9KWsTS1x9bTfgeOulFbQKHxPa89BaxZzA0.woff2) format('woff2'), url(https://fonts.gstatic.com/s/robotodraft/v1/er-TIW55l9KWsTS1x9bTfoo3ZslTYfJv0R05CazkwN8.woff) format('woff');
 }
 @font-face {
   font-family: "Material-Design-Icons";
@@ -2311,6 +2311,11 @@ h5,
 h6 {
   font-weight: 400;
 }
+a,
+a:hover,
+a:focus {
+  color: #009587;
+}
 body .well,
 .container .well,
 .container-fluid .well,
@@ -2379,6 +2384,16 @@ body .well:not([class^="well well-material-"]) .create,
 .container .well:not([class^="well well-material-"]) .create,
 .container-fluid .well:not([class^="well well-material-"]) .create {
   color: rgba(0, 0, 0, 0.84);
+}
+body .well.well-sm,
+.container .well.well-sm,
+.container-fluid .well.well-sm {
+  padding: 10px;
+}
+body .well.well-lg,
+.container .well.well-lg,
+.container-fluid .well.well-lg {
+  padding: 26px;
 }
 body [class^="well well-material-"],
 .container [class^="well well-material-"],
@@ -4441,7 +4456,6 @@ select[multiple].form-control.focus {
 .input-group .form-control-wrapper {
   margin-right: 5px;
   margin-left: 5px;
-  bottom: -10px;
 }
 .input-group .form-control-wrapper .form-control {
   float: none;
@@ -4452,6 +4466,7 @@ select[multiple].form-control.focus {
 }
 .input-group .input-group-btn .btn {
   border-radius: 4px;
+  margin: 0;
 }
 select.form-control {
   border: 0;
@@ -5404,7 +5419,7 @@ icon-material-lightgrey {
   padding-top: 0;
 }
 .modal-backdrop {
-  display: none;
+  background: rgba(0, 0, 0, 0.3);
 }
 .label {
   border-radius: 1px;
@@ -5570,16 +5585,12 @@ icon-material-lightgrey {
 .panel-footer {
   background-color: #ececec;
 }
-.modal {
-  background: rgba(0, 0, 0, 0.3);
-}
 * {
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
   -webkit-tap-highlight-color: transparent;
 }
 *:focus {
   outline: 0;
-  border: none;
 }
 .snackbar {
   background-color: #323232;
@@ -6167,3 +6178,4 @@ icon-material-lightgrey {
   pointer-events: none;
   color: #757575;
 }
+/*# sourceMappingURL=material-wfont.css.map */

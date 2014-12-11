@@ -21,6 +21,15 @@
 
   $.material =  {
     "options": {
+      // These options set what will be started by $.material.init()
+      "input": true,
+      "ripples": true,
+      "checkbox": true,
+      "togglebutton": true,
+      "radio": true,
+      "arrive": true,
+      "autofill": true,
+
       "withRipples": [
         ".btn:not(.btn-link)",
         ".card-image",
@@ -128,51 +137,72 @@
     "ripples": function(selector) {
       $.ripples({"target": (selector) ? selector : this.options.withRipples});
     },
-    "init": function() {
-      this.ripples();
-      this.input();
-      this.checkbox();
-      this.togglebutton();
-      this.radio();
+    "autofill": function() {
 
-      if (document.arrive) {
-        document.arrive("input, textarea, select", function() {
-          $.material.init();
+      // This part of code will detect autofill when the page is loading (username and password inputs for example)
+      var loading = setInterval(function() {
+        $("input[type!=checkbox]").each(function() {
+          if ($(this).val() && $(this).val() !== $(this).attr("value")) {
+            $(this).trigger("change");
+          }
         });
-      }
+      }, 100);
 
-      // Detect autofill
-      (function() {
-        // This part of code will detect autofill when the page is loading (username and password inputs for example)
-        var loading = setInterval(function() {
-          $("input[type!=checkbox]").each(function() {
-            if ($(this).val() && $(this).val() !== $(this).attr("value")) {
+      // After 10 seconds we are quite sure all the needed inputs are autofilled then we can stop checking them
+      setTimeout(function() {
+        clearInterval(loading);
+      }, 10000);
+      // Now we just listen on inputs of the focused form (because user can select from the autofill dropdown only when the input has focus)
+      var focused;
+      $(document)
+      .on("focus", "input", function() {
+        var $inputs = $(this).parents("form").find("input").not("[type=file]");
+        focused = setInterval(function() {
+          $inputs.each(function() {
+            if ($(this).val() !== $(this).attr("value")) {
               $(this).trigger("change");
             }
           });
         }, 100);
-        // After 10 seconds we are quite sure all the needed inputs are autofilled then we can stop checking them
-        setTimeout(function() {
-          clearInterval(loading);
-        }, 10000);
-        // Now we just listen on inputs of the focused form (because user can select from the autofill dropdown only when the input has focus)
-        var focused;
-        $(document)
-        .on("focus", "input", function() {
-          var $inputs = $(this).parents("form").find("input");
-          focused = setInterval(function() {
-            $inputs.each(function() {
-              if ($(this).val() !== $(this).attr("value")) {
-                $(this).trigger("change");
-              }
-            });
-          }, 100);
-        })
-        .on("blur", "input", function() {
-          clearInterval(focused);
-        });
+      })
+      .on("blur", "input", function() {
+        clearInterval(focused);
+      });
+    },
+    "init": function() {
+      if ($.ripples && this.options.ripples) {
+        this.ripples();
+      }
+      if (this.options.input) {
+        this.input();
+      }
+      if (this.options.checkbox) {
+        this.checkbox();
+      }
+      if (this.options.togglebutton) {
+        this.togglebutton();
+      }
+      if (this.options.radio) {
+        this.radio();
+      }
+      if (this.options.autofill) {
+        this.autofill();
+      }
 
-      })();
+      if (document.arrive && this.options.arrive) {
+        $(document).arrive(this.options.inputElements, function() {
+          $.material.input($(this));
+        });
+        $(document).arrive(this.options.checkboxElements, function() {
+          $.material.checkbox($(this));
+        });
+        $(document).arrive(this.options.radioElements, function() {
+          $.material.radio($(this));
+        });
+        $(document).arrive(this.options.togglebuttonElements, function() {
+          $.material.togglebutton($(this));
+        });
+      }
     }
   };
 

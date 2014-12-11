@@ -2287,6 +2287,11 @@ h5,
 h6 {
   font-weight: 400;
 }
+a,
+a:hover,
+a:focus {
+  color: #009587;
+}
 body .well,
 .container .well,
 .container-fluid .well,
@@ -2355,6 +2360,16 @@ body .well:not([class^="well well-material-"]) .create,
 .container .well:not([class^="well well-material-"]) .create,
 .container-fluid .well:not([class^="well well-material-"]) .create {
   color: rgba(0, 0, 0, 0.84);
+}
+body .well.well-sm,
+.container .well.well-sm,
+.container-fluid .well.well-sm {
+  padding: 10px;
+}
+body .well.well-lg,
+.container .well.well-lg,
+.container-fluid .well.well-lg {
+  padding: 26px;
 }
 body [class^="well well-material-"],
 .container [class^="well well-material-"],
@@ -4417,7 +4432,6 @@ select[multiple].form-control.focus {
 .input-group .form-control-wrapper {
   margin-right: 5px;
   margin-left: 5px;
-  bottom: -10px;
 }
 .input-group .form-control-wrapper .form-control {
   float: none;
@@ -4428,6 +4442,7 @@ select[multiple].form-control.focus {
 }
 .input-group .input-group-btn .btn {
   border-radius: 4px;
+  margin: 0;
 }
 select.form-control {
   border: 0;
@@ -5380,7 +5395,7 @@ icon-material-lightgrey {
   padding-top: 0;
 }
 .modal-backdrop {
-  display: none;
+  background: rgba(0, 0, 0, 0.3);
 }
 .label {
   border-radius: 1px;
@@ -5546,16 +5561,12 @@ icon-material-lightgrey {
 .panel-footer {
   background-color: #ececec;
 }
-.modal {
-  background: rgba(0, 0, 0, 0.3);
-}
 * {
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
   -webkit-tap-highlight-color: transparent;
 }
 *:focus {
   outline: 0;
-  border: none;
 }
 .snackbar {
   background-color: #323232;
@@ -6143,3 +6154,4 @@ icon-material-lightgrey {
   pointer-events: none;
   color: #757575;
 }
+/*# sourceMappingURL=material.css.map */

@@ -28,7 +28,7 @@
       "togglebutton": true,
       "radio": true,
       "arrive": true,
-      "autofill": true,
+      "autofill": false,
 
       "withRipples": [
         ".btn:not(.btn-link)",
@@ -107,7 +107,7 @@
       })
       .on("keyup change", ".form-control", function() {
         var $this = $(this);
-        if($this.val() === "") {
+        if($this.val() === "" && $this[0].checkValidity()) {
           $this.addClass("empty");
         } else {
           $this.removeClass("empty");
@@ -122,7 +122,6 @@
       .on("change", ".form-control-wrapper.fileinput [type=file]", function() {
         var value = "";
         $.each($(this)[0].files, function(i, file) {
-          console.log(file);
           value += file.name + ", ";
         });
         value = value.substring(0, value.length - 2);
@@ -135,7 +134,7 @@
       });
     },
     "ripples": function(selector) {
-      $.ripples({"target": (selector) ? selector : this.options.withRipples});
+      $((selector) ? selector : this.options.withRipples).ripples();
     },
     "autofill": function() {
 
@@ -170,7 +169,7 @@
       });
     },
     "init": function() {
-      if ($.ripples && this.options.ripples) {
+      if ($.fn.ripples && this.options.ripples) {
         this.ripples();
       }
       if (this.options.input) {

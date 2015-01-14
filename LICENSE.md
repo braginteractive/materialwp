@@ -36,7 +36,7 @@ Material Design WordPress Theme Copyright (C) 2014+ Brad Williams
 
 This program is free software: you can redistribute it and/or modify it under the terms you can find below.
 
-You can use this software for free only for no-profit projects. If you'd like to use this software in a commercial project you may contact the author (Brad Williams) of the software and ask for his permission and fulfill his conditions.
+You can use this software for free only for no-profit projects. If you'd like to use this software in a commercial project you may contact the author of Bootstrap Material Design theme first (Federico Zivolo) and ask for his permission and fulfill his conditions, then contact the author of Material Design WordPress Theme (Brad Williams).
 
 You can edit and/or redistribute this software only providing a copy of this license with it.
 

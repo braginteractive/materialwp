@@ -22,3 +22,7 @@ Without the following projects/people this theme wouldn't be possible:
 ## Documentation, FAQs, and More
 
 If you’re interested in helping or have any questions, please [let me know](http://braginteractive.com/contact-us).
+
+
+## Material Design Themes
+Check out other Material Design WordPress themes and templates over at [MaterialDesignThemes.com](http://materialdesignthemes.com)

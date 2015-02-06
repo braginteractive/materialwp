@@ -19,6 +19,15 @@ Without the following projects/people this theme wouldn't be possible:
 - http://underscores.me/
 - http://getbootstrap.com
 
+##Changing Colors
+It is recommended that you first create a child theme so you will be able to update the theme in the future. You can read how to create a WordPress Child theme [here](http://codex.wordpress.org/Child_Themes).
+
+###Option 1
+Use CSS to target the element you would like to change... 
+
+###Option 2
+Edit the theme PHP files. For example, the color of the sidebar widget areas use a class to set the color. To edit this class, look in the functions.php file and find the function that registers the sidebar widget. Within this function you will see a class called "panel-warning", change this class to edit the color. Refer to the Varitations section [here](https://github.com/FezVrasta/bootstrap-material-design) to find all the different colors.
+
 ## Documentation, FAQs, and More
 
 If you’re interested in helping or have any questions, please [let me know](http://braginteractive.com/contact-us).

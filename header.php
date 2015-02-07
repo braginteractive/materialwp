@@ -45,16 +45,17 @@
 		                'theme_location'    => 'primary',
 		                'depth'             => 2,
 		                'container'         => false,
-		                'menu_class'        => 'nav navbar-nav navbar-right',
+		                'menu_class'        => 'nav navbar-nav navbar-left',
 		                'fallback_cb'       => 'wp_bootstrap_navwalker::fallback',
 		                'walker'            => new wp_bootstrap_navwalker())
 		            );
 	        	?>
-	        		<!-- <form class="navbar-form navbar-right" role="search" method="get" id="searchform" action="<?php // echo home_url( '/' ); ?>">
-                        <input name="s" id="s" type="text" class="form-control col-lg-8" placeholder="<?php // _e('Search','materialwp'); ?>">
-                    </form> -->
 
-        
+	        		<form class="navbar-form navbar-right" role="search" method="get" id="searchform" action="<?php  echo home_url( '/' ); ?>">
+	        			<div class="form-control-wrapper">
+                        	<input name="s" id="s" type="text" class="form-control col-lg-8" placeholder="<?php  _e('Search','materialwp'); ?>">
+                        </div>
+                    </form>
 
         		</div> <!-- .navbar-collapse -->
         	</div><!-- /.container -->

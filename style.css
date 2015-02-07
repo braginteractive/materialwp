@@ -310,6 +310,17 @@ textarea {
 /*--------------------------------------------------------------
 5.0 Navigation
 --------------------------------------------------------------*/
+
+.form-control-wrapper .form-control, .form-control, fieldset[disabled] .form-control:focus, .form-control-wrapper .form-control:focus, .form-control:focus, fieldset[disabled] .form-control.focus, .form-control-wrapper .form-control.focus, .form-control.focus {
+	padding: 0;
+	float: none;
+	border: 0;
+	box-shadow: none;
+	border-radius: 0;
+	background: transparent;
+	border-bottom: 1px solid #757575;
+}
+
 /*--------------------------------------------------------------
 5.1 Links
 --------------------------------------------------------------*/

@@ -98,6 +98,8 @@ function materialwp_scripts() {
 
 	wp_enqueue_style( 'material-styles', get_template_directory_uri() . '/css/material-wfont.min.css', array(), '', 'all' );
 
+	wp_enqueue_style( 'material-styles-css', get_template_directory_uri() . '/css/material.min.css', array(), '', 'all' );
+
 	wp_enqueue_style( 'materialwp-style', get_stylesheet_uri() );
 
 	wp_enqueue_script( 'bootstrap-js', get_template_directory_uri() . '/js/bootstrap.min.js', array('jquery'), '3.3.1', true );

@@ -1,6 +1,6 @@
 /*
-Theme Name: materialwp
-Theme URI: http://underscores.me/
+Theme Name: MaterialWP
+Theme URI: http://materialwp.com
 Author: Brad Williams
 Author URI: http://braginteractive.com
 Description: Material Design WordPress Theme
@@ -8,12 +8,12 @@ Version: 0.0.1
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: materialwp
-Tags:
+Tags: one-column, two-columns, left-sidebar, right-sidebar, fluid-layout, responsive-layout, custom-menu, full-width-template, rtl-language-support, sticky-post, theme-options, translation-ready
 
 This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
 
- materialwp is based on Underscores http://underscores.me/, (C) 2012-2014 Automattic, Inc.
+MaterialWP is based on Underscores http://underscores.me/, (C) 2012-2014 Automattic, Inc.
 
 Resetting and rebuilding styles have been helped along thanks to the fine work of
 Eric Meyer http://meyerweb.com/eric/tools/css/reset/index.html
@@ -515,28 +515,37 @@ a:active {
 	margin: 0 0 1.5em;
 }
 
-.entry-meta span {
+.entry-meta span, 
+.entry-footer span  {
 	margin-right: 20px;
 	display: inline-block;
 }
 
-.entry-meta span:last-child {
+.entry-meta span:last-child, 
+.entry-footer span:last-child {
 	margin-right: 0;
 }
 
-.entry-meta span a {
+.entry-meta span a, 
+.entry-footer span a {
 	color: #777;
 	text-decoration: none;
 	font-size: 90%;
 }
 
-.entry-meta span a:hover {
+.entry-meta span a:hover,
+.entry-footer span a:hover {
 	text-decoration: underline;
 }
 
-.entry-meta span i {
+.entry-meta span i,
+.entry-footer span i {
 	color: #777;
 	font-size: 80%;
+}
+
+.entry-footer .edit-link {
+	float: right;
 }
 
 .entry-container {

@@ -113,13 +113,13 @@ if ( ! function_exists( 'materialwp_entry_footer' ) ) :
  */
 function materialwp_entry_footer() {
 
-	// if ( 'post' == get_post_type() ) {
-	// /* translators: used between list items, there is a space after the comma */
-	// 	$tags_list = get_the_tag_list( '', __( ', ', 'materialwp' ) );
-	// 	if ( $tags_list ) {
-	// 		printf( '<span class="tags-links">' . __( 'Tagged %1$s', 'materialwp' ) . '</span>', $tags_list );
-	// 	}
-	// }
+	if ( 'post' == get_post_type() ) {
+	/* translators: used between list items, there is a space after the comma */
+		$tags_list = get_the_tag_list( '', __( ', ', 'materialwp' ) );
+		if ( $tags_list ) {
+			printf( '<span class="tags-links">' . __( '<i class="mdi-maps-local-offer"></i> %1$s', 'materialwp' ) . '</span>', $tags_list );
+		}
+	}
 
 	edit_post_link( __( 'Edit', 'materialwp' ), '<span class="edit-link">', '</span>' );
 }

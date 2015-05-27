@@ -41,7 +41,6 @@
     			<div class="navbar-collapse collapse" id="bs-example-navbar-collapse-1">
 				 <?php
 		            wp_nav_menu( array(
-		                'menu'              => 'primary',
 		                'theme_location'    => 'primary',
 		                'depth'             => 2,
 		                'container'         => false,
@@ -50,12 +49,6 @@
 		                'walker'            => new wp_bootstrap_navwalker())
 		            );
 	        	?>
-
-	        		<form class="navbar-form navbar-right" role="search" method="get" id="searchform" action="<?php echo esc_url( home_url( '/' ) ); ?>">
-	        			<div class="form-control-wrapper">
-                        	<input name="s" id="s" type="text" class="form-control col-lg-8" placeholder="<?php  _e('Search','materialwp'); ?>">
-                        </div>
-                    </form>
 
         		</div> <!-- .navbar-collapse -->
         	</div><!-- /.container -->

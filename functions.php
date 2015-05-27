@@ -5,13 +5,6 @@
  * @package materialwp
  */
 
-/**
- * Set the content width based on the theme's design and stylesheet.
- */
-if ( ! isset( $content_width ) ) {
-	$content_width = 640; /* pixels */
-}
-
 if ( ! function_exists( 'materialwp_setup' ) ) :
 /**
  * Sets up theme defaults and registers support for various WordPress features.
@@ -21,6 +14,13 @@ if ( ! function_exists( 'materialwp_setup' ) ) :
  * as indicating support for post thumbnails.
  */
 function materialwp_setup() {
+
+	/**
+	* Set the content width based on the theme's design and stylesheet.
+	*/
+	if ( ! isset( $content_width ) ) {
+		$content_width = 640; /* pixels */
+	}
 
 	/*
 	 * Make theme available for translation.
@@ -95,23 +95,21 @@ add_action( 'widgets_init', 'materialwp_widgets_init' );
  * Enqueue scripts and styles.
  */
 function materialwp_scripts() {
-	wp_enqueue_style( 'bootstrap-styles', get_template_directory_uri() . '/css/bootstrap.min.css', array(), '3.3.1', 'all' );
+	wp_enqueue_style( 'mwp-bootstrap-styles', get_template_directory_uri() . '/bower_components/bootstrap/dist/css/bootstrap.min.css', array(), '3.3.4', 'all' );
 
-	wp_enqueue_style( 'ripples-styles', get_template_directory_uri() . '/css/ripples.min.css', array(), '', 'all' );
+	wp_enqueue_style( 'mwp-roboto-styles', get_template_directory_uri() . '/bower_components/bootstrap-material-design/dist/css/roboto.min.css', array(), '', 'all' );
 
-	wp_enqueue_style( 'material-styles', get_template_directory_uri() . '/css/material-wfont.min.css', array(), '', 'all' );
+	wp_enqueue_style( 'mwp-material-styles', get_template_directory_uri() . '/bower_components/bootstrap-material-design/dist/css/material-fullpalette.min.css', array(), '', 'all' );
+
+	wp_enqueue_style( 'mwp-ripples-styles', get_template_directory_uri() . '/bower_components/bootstrap-material-design/dist/css/ripples.min.css', array(), '', 'all' );
 
 	wp_enqueue_style( 'materialwp-style', get_stylesheet_uri() );
 
-	wp_enqueue_script( 'bootstrap-js', get_template_directory_uri() . '/js/bootstrap.min.js', array('jquery'), '3.3.1', true );
+	wp_enqueue_script( 'mwp-bootstrap-js', get_template_directory_uri() . '/bower_components/bootstrap/dist/js/bootstrap.min.js', array('jquery'), '3.3.4', true );
 
-	wp_enqueue_script( 'ripples-js', get_template_directory_uri() . '/js/ripples.min.js', array('jquery'), '', true );
+	wp_enqueue_script( 'mwp-ripples-js', get_template_directory_uri() . '/bower_components/bootstrap-material-design/dist/js/ripples.min.js', array('jquery'), '', true );
 
-	wp_enqueue_script( 'material-js', get_template_directory_uri() . '/js/material.min.js', array('jquery'), '', true );
-
-	wp_enqueue_script( 'materialwp-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
-
-	wp_enqueue_script( 'materialwp-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
+	wp_enqueue_script( 'mwp-material-js', get_template_directory_uri() . '/bower_components/bootstrap-material-design/dist/js/material.min.js', array('jquery'), '', true );
 
 	wp_enqueue_script( 'main-js', get_template_directory_uri() . '/js/main.js', array('jquery'), '', true );
 
@@ -155,8 +153,3 @@ require get_template_directory() . '/inc/bootstrap-walker.php';
  * Comments Callback.
  */
 require get_template_directory() . '/inc/comments-callback.php';
-
-/**
- * TGM Plugin Activation.
- */
-require get_template_directory() . '/inc/plugins.php';

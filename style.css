@@ -4,7 +4,7 @@ Theme URI: http://materialwp.com
 Author: Brad Williams
 Author URI: http://braginteractive.com
 Description: Material Design WordPress Theme
-Version: 0.0.2
+Version: 0.0.3
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: materialwp
@@ -591,6 +591,7 @@ a.read-more:hover {
 	background-color: #374147;
 	padding: 40px 0;
 	color: #fff;
+	margin-top: 30px;
 }
 
 .site-footer a {

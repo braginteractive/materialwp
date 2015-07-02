@@ -16,6 +16,14 @@
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 
 <?php wp_head(); ?>
+
+<style type="text/css">
+.navbar-inverse.navbar { background-color: <?php echo get_theme_mod('navigation_background_color'); ?>; }
+.panel-warning>.panel-heading { background-color: <?php echo get_theme_mod('complimentary_color'); ?>; }
+.btn-warning:not(.btn-link):not(.btn-flat), .btn-warning:hover:not(.btn-link):not(.btn-flat), .btn-warning:active:not(.btn-link):not(.btn-flat) { background-color: <?php echo get_theme_mod('complimentary_color'); ?>; }
+.entry-content a, .panel a { color: <?php echo get_theme_mod('link_color'); ?>; }
+.entry-content a:hover, .entry-content a:focus, .entry-content a:active, .panel a:hover, .panel a:focus, .panel a:active; { color: <?php echo get_theme_mod('link_color'); ?>; }
+</style>
 </head>
 
 <body <?php body_class(); ?>>

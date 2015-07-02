@@ -33,4 +33,34 @@
 			}
 		} );
 	} );
+
+	// Navigation Background color
+	wp.customize( 'navigation_background_color', function( value ) {
+		value.bind( function( to ) {
+			$( '.navbar-inverse.navbar' ).css( {
+				'background-color': to
+			} );
+		} );
+	} );
+
+	// Complimentary color
+	wp.customize( 'complimentary_color', function( value ) {
+		value.bind( function( to ) {
+			$( '.panel-warning>.panel-heading' ).css( {
+				'background-color': to
+			} );
+		} );
+	} );
+
+	// Link color
+	wp.customize( 'link_color', function( value ) {
+		value.bind( function( to ) {
+			$( '.entry-content a' ).css( {
+				'color': to
+			} );
+			$( '.panel a' ).css( {
+				'color': to
+			} );
+		} );
+	} );
 } )( jQuery );

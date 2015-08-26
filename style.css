@@ -4,7 +4,7 @@ Theme URI: http://materialwp.com
 Author: Brad Williams
 Author URI: http://braginteractive.com
 Description: Material Design WordPress Theme
-Version: 0.0.3
+Version: 0.0.4
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: materialwp
@@ -816,4 +816,80 @@ object {
 
 .gallery-caption {
 	display: block;
+}
+
+/*--------------------------------------------------------------
+Portfolio
+--------------------------------------------------------------*/
+#Container .mix{
+	display: none;
+}
+
+.btn:not(.btn-link):not(.btn-flat).active {
+	box-shadow: 0 6px 10px rgba(0,0,0,.23),0 10px 30px rgba(0,0,0,.19);
+}
+
+.portfolio-list .mix h4 {
+	padding: 10px;
+	margin: 0;
+}
+
+.portfolio-list .mix h4 a {
+	color: #404040;
+	font-size: 12px;
+}
+
+.portfolio-list .mix h4 a:hover {
+	text-decoration: none;
+	color: #3f51b5;
+}
+
+.portfolio-img {
+	background-color: #FFFFFF;
+	box-shadow: 0 3px 10px rgba(0,0,0,.23),0 3px 10px rgba(0,0,0,.16);
+	border-radius: 2px;
+	border: 0;
+	margin-bottom: 20px;
+}
+
+
+
+
+
+/*--------------------------------------------------------------
+Media Queries 
+--------------------------------------------------------------*/
+
+/* Custom, iPhone Retina */ 
+@media only screen and (min-width : 320px) {
+	
+}
+
+/* Extra Small Devices, Phones */ 
+@media only screen and (min-width : 480px) {
+
+	.portfolio-list .mix h4 {
+		padding: 20px;
+	}
+
+	.portfolio-list .mix h4 a {
+		font-size: 18px;
+	}
+
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) {
+
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px) {
+
+}
+
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 1200px) {
+
 }

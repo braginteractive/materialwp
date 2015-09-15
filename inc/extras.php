@@ -50,7 +50,7 @@ function materialwp_wp_title( $title, $sep ) {
 	global $page, $paged;
 
 	// Add the blog name
-	$title .= get_bloginfo( 'name', 'display' );
+	$title = get_bloginfo( 'name', 'display' );
 
 	// Add the blog description for the home/front page.
 	$site_description = get_bloginfo( 'description', 'display' );

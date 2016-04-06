@@ -1,0 +1,22 @@
+{
+  "name": "materialwp",
+  "homepage": "https://github.com/braginteractive/materialwp",
+  "authors": [
+    "Brad Williams <braginteractive@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap-material-design": "~0.3.0",
+    "bootstrap": "~3.3.6"
+  }
+}

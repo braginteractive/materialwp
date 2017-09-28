@@ -18,6 +18,7 @@ function materialwp_setup() {
 	/**
 	* Set the content width based on the theme's design and stylesheet.
 	*/
+	global $content_width;
 	if ( ! isset( $content_width ) ) {
 		$content_width = 640; /* pixels */
 	}
@@ -95,7 +96,7 @@ add_action( 'widgets_init', 'materialwp_widgets_init' );
  * Enqueue scripts and styles.
  */
 function materialwp_scripts() {
-	wp_enqueue_style( 'mwp-bootstrap-styles', get_template_directory_uri() . '/bower_components/bootstrap/dist/css/bootstrap.min.css', array(), '3.3.4', 'all' );
+	wp_enqueue_style( 'mwp-bootstrap-styles', get_template_directory_uri() . '/bower_components/bootstrap/dist/css/bootstrap.min.css', array(), '3.3.6', 'all' );
 
 	wp_enqueue_style( 'mwp-roboto-styles', get_template_directory_uri() . '/bower_components/bootstrap-material-design/dist/css/roboto.min.css', array(), '', 'all' );
 
@@ -105,7 +106,7 @@ function materialwp_scripts() {
 
 	wp_enqueue_style( 'materialwp-style', get_stylesheet_uri() );
 
-	wp_enqueue_script( 'mwp-bootstrap-js', get_template_directory_uri() . '/bower_components/bootstrap/dist/js/bootstrap.min.js', array('jquery'), '3.3.4', true );
+	wp_enqueue_script( 'mwp-bootstrap-js', get_template_directory_uri() . '/bower_components/bootstrap/dist/js/bootstrap.min.js', array('jquery'), '3.3.6', true );
 
 	wp_enqueue_script( 'mwp-ripples-js', get_template_directory_uri() . '/bower_components/bootstrap-material-design/dist/js/ripples.min.js', array('jquery'), '', true );
 
@@ -137,7 +138,7 @@ require get_template_directory() . '/inc/extras.php';
 /**
  * Customizer additions.
  */
-//require get_template_directory() . '/inc/customizer.php';
+require get_template_directory() . '/inc/customizer.php';
 
 /**
  * Load Jetpack compatibility file.

@@ -64,6 +64,13 @@ if ( version_compare( $GLOBALS['wp_version'], '4.1', '<' ) ) :
 			$title .= " $sep " . sprintf( esc_html__( 'Page %s', 'mdlwp' ), max( $paged, $page ) );
 		}
 
+	// Add the blog name
+	$title = get_bloginfo( 'name', 'display' );
+
+	// Add the blog description for the home/front page.
+	$site_description = get_bloginfo( 'description', 'display' );
+	if ( $site_description && ( is_home() || is_front_page() ) ) {
+		$title .= " $sep $site_description";
 		return $title;
 	}
 	add_filter( 'wp_title', 'mdlwp_wp_title', 10, 2 );

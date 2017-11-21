@@ -155,3 +155,23 @@ function custom_edit_post_link($output) {
  return $output;
 }
 add_filter('edit_post_link', 'custom_edit_post_link');
+
+/**
+ * Add custom layout for blog in Customizer
+ */
+function materialwp_blog_layout_customizer( $classes, $class, $post_id ) {
+
+	global $post;
+	$blog_layout = get_theme_mod( 'blog_layout' );
+
+    if ( ! empty ( $blog_layout ) && $blog_layout == 'grid' ) {
+    	$classes[] = $blog_layout . ' col-sm-4';
+    } elseif( ! empty ( $blog_layout ) && $blog_layout == 'list' ) {
+		$classes[] = $blog_layout . ' col-sm-12';
+    }
+
+    // Return the array
+    return $classes;
+
+}
+add_filter( 'post_class', 'materialwp_blog_layout_customizer', 10, 3 );

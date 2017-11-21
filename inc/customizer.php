@@ -42,6 +42,16 @@ function materialwp_customize_register( $wp_customize ) {
         )
     );
 
+    /**/
+    $wp_customize->add_setting( 'blog_layout',
+         array(
+            'default' => 'list',
+            'type' => 'theme_mod',
+            'capability' => 'edit_theme_options',
+            'transport' => 'postMessage',
+        )
+    );
+
     $wp_customize->add_control( new WP_Customize_Color_Control($wp_customize, 'navigation_background_color', array(
 		'label' => __( 'Navigation Background Color', 'materialwp' ),
 		'section' => 'colors',
@@ -59,6 +69,19 @@ function materialwp_customize_register( $wp_customize ) {
 		'section' => 'colors',
 		'settings' => 'link_color',
 	)));
+
+    /**/
+    $wp_customize->add_control( new WP_Customize_Control($wp_customize, 'blog_layout', array(
+        'label' => __( 'Blog Layout', 'materialwp' ),
+        'section' => 'static_front_page',
+        'settings' => 'blog_layout',
+        'type'    => 'select',
+        'choices'    => array(
+            'list' => 'List Layout',
+            'grid' => 'Grid Layout',
+        ),
+    )));
+
 }
 add_action( 'customize_register', 'materialwp_customize_register' );
 

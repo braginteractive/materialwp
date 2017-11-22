@@ -15,6 +15,13 @@ function materialwp_customize_register( $wp_customize ) {
 	$wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
 	$wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';
 
+    /* Section for Layout settings */
+    $wp_customize->add_section( 'layout' , array(
+        'title' => 'Layout',
+        'description' => 'Options for your layout site/blog',
+        'capability' => 'edit_theme_options',
+    ) );
+
 	$wp_customize->add_setting( 'navigation_background_color',
          array(
             'default' => '#3f51b5',
@@ -42,18 +49,18 @@ function materialwp_customize_register( $wp_customize ) {
         )
     );
 
-    /**/
-    $wp_customize->add_setting( 'blog_layout',
+    /* Setting for Archive Layout */
+    $wp_customize->add_setting( 'archive_layout',
          array(
-            'default' => 'list',
+            'default' => 'column_3',
             'type' => 'theme_mod',
             'capability' => 'edit_theme_options',
             'transport' => 'postMessage',
         )
     );
 
-    /**/
-    $wp_customize->add_setting( 'archive_layout',
+    /* Setting for Sidebar Layout */
+    $wp_customize->add_setting( 'sidebar_layout',
          array(
             'default' => 'with_sidebar',
             'type' => 'theme_mod',
@@ -80,23 +87,25 @@ function materialwp_customize_register( $wp_customize ) {
 		'settings' => 'link_color',
 	)));
 
-    /**/
-    $wp_customize->add_control( new WP_Customize_Control($wp_customize, 'blog_layout', array(
-        'label' => __( 'Blog Layout', 'materialwp' ),
-        'section' => 'static_front_page',
-        'settings' => 'blog_layout',
+    /* Control for Archive Layout */
+    $wp_customize->add_control( new WP_Customize_Control($wp_customize, 'archive_layout', array(
+        'label' => __( 'Archive Layout', 'materialwp' ),
+        'section' => 'layout',
+        'settings' => 'archive_layout',
         'type'    => 'select',
         'choices'    => array(
-            'list' => 'List Layout',
-            'grid' => 'Grid Layout',
+            'column_1' => 'One column',
+            'column_2' => 'Two columns',
+            'column_3' => 'Three columns',
+            'column_4' => 'Four columns',
         ),
     )));
 
-    /**/
-    $wp_customize->add_control( new WP_Customize_Control($wp_customize, 'archive_layout', array(
-        'label' => __( 'Archive Layout', 'materialwp' ),
-        'section' => 'static_front_page',
-        'settings' => 'archive_layout',
+    /* Control for Sidebar Layout */
+    $wp_customize->add_control( new WP_Customize_Control($wp_customize, 'sidebar_layout', array(
+        'label' => __( 'Sidebar Layout', 'materialwp' ),
+        'section' => 'layout',
+        'settings' => 'sidebar_layout',
         'type'    => 'select',
         'choices'    => array(
             'with_sidebar' => 'With sidebar',

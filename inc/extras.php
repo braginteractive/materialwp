@@ -156,6 +156,28 @@ function custom_edit_post_link($output) {
 }
 add_filter('edit_post_link', 'custom_edit_post_link');
 
+if ( ! function_exists( 'materialwp_archive_layout' ) ) {
+	/**
+	 * Custom classes for archive layout.
+	 *
+	 * @since 0.0.4
+	 *
+	 * @return string Classes name.
+	 */
+	function materialwp_archive_layout() {
+
+		$archive_layout = get_theme_mod( 'archive_layout' );
+
+		if ( $archive_layout == 'with_sidebar' ) {
+			return 'col-sm-8';
+		} elseif ( $archive_layout == 'full' ) {
+			return 'col-sm-12';
+		}
+		
+	}
+}
+
+
 /**
  * Add custom layout for blog in Customizer
  */
@@ -164,9 +186,9 @@ function materialwp_blog_layout_customizer( $classes, $class, $post_id ) {
 	global $post;
 	$blog_layout = get_theme_mod( 'blog_layout' );
 
-    if ( ! empty ( $blog_layout ) && $blog_layout == 'grid' ) {
+    if ( ! empty ( $blog_layout ) && $blog_layout == 'grid' && is_archive() || is_home() ) {
     	$classes[] = $blog_layout . ' col-sm-4';
-    } elseif( ! empty ( $blog_layout ) && $blog_layout == 'list' ) {
+    } elseif( ! empty ( $blog_layout ) && $blog_layout == 'list' && is_archive() || is_home() ) {
 		$classes[] = $blog_layout . ' col-sm-12';
     }
 

@@ -15,7 +15,7 @@ get_header(); ?>
 <div class="container">
 	<div class="row">
 
-		<div id="primary" class="col-md-8 col-lg-8">
+		<div id="primary" class="<?php echo materialwp_archive_layout(); ?>">
 			<main id="main" class="site-main" role="main">
 
 				<?php while ( have_posts() ) : the_post(); ?>

@@ -52,6 +52,11 @@
 		} );
 	} );
 
+	// ***
+	wp.customize( 'sidebar_layout', function( value ) {
+		value.change( $( '#primary' ).toggleClass( to );
+	} );
+
 	// Link color
 	wp.customize( 'link_color', function( value ) {
 		value.bind( function( to ) {

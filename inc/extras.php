@@ -155,3 +155,45 @@ function custom_edit_post_link($output) {
  return $output;
 }
 add_filter('edit_post_link', 'custom_edit_post_link');
+
+/**
+ * Return classes for sidebar option
+ *
+ * @since  0.0.4
+ */
+function materialwp_sidebar_layout() {
+
+	$sidebar_layout = get_theme_mod( 'sidebar_layout' );
+
+	if ( $sidebar_layout == 'with_sidebar' ) {
+		return 'col-sm-8';
+	} else {
+		return 'col-sm-12';
+	}
+
+}
+
+/**
+ * Return classes for layout columns
+ *
+ * @since  0.0.4
+ */
+function materialwp_archive_layout_columns( $classes, $class, $post_id ) {
+
+	$archive_layout = get_theme_mod( 'archive_layout' );
+
+	if ( $archive_layout == 'column_4' ) {
+		$classes[] = 'col-sm-3';
+	} elseif ( $archive_layout == 'column_3' ) {
+		$classes[] = 'col-sm-4';
+	} elseif ( $archive_layout == 'column_2' ) {
+		$classes[] = 'col-sm-6';
+	} else {
+		$classes[] = 'col-sm-12';
+	}
+
+    // Return the classes array
+    return $classes;
+
+}
+add_filter( 'post_class', 'materialwp_archive_layout_columns', 10, 3 );

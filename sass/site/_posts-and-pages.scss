@@ -1,0 +1,84 @@
+.sticky {
+	display: block;
+}
+
+.byline,
+.updated:not(.published){
+	display: none;
+}
+
+.single .byline,
+.group-blog .byline {
+	display: inline;
+}
+
+.post {
+	margin-bottom: 4em;
+	padding-bottom: 1em;
+}
+
+.post-thumbnail {
+	margin-bottom: 1em;
+}
+
+.entry-meta,
+.entry-footer {
+  font-size: .75rem;
+  margin: .75em 0 2em;
+
+  .material-icons {
+    color: $gray-600;
+    font-size: .75rem;
+    vertical-align: middle;
+    padding-bottom: 0.2rem;
+    margin-right: 0.2rem;
+  }
+  span {
+    margin: 0 1.5em .4em 0;
+    display: inline-block;
+
+    &:last-child {
+      margin: 0;
+    }
+
+    a {
+      text-decoration: none;
+      color: $gray-600;
+
+      &:hover {
+        color: $gray-900;
+      }
+    }
+  }
+	.edit-link {
+		.btn {
+      		color: $white;
+
+      	&:hover {
+	        color: $white
+	    }
+	}
+  }
+}
+
+/* Posts Navigation */
+.nav-links {
+	display: flex;
+	justify-content: space-between;
+}
+
+/* Screenreaders */
+.screen-reader-text {
+	@include sr-only;
+}
+
+/* 404 page */
+.error404 {
+	.content-area {
+		@include make-col-ready();
+		@include make-col(12);	
+	}
+}
+
+
+

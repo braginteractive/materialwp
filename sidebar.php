@@ -1,19 +1,23 @@
 <?php
 /**
- * The sidebar containing the main widget area.
+ * The sidebar containing the main widget area
  *
- * @package materialwp
+ * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
+ *
+ * @package MaterialWP
  */
 
-if ( ! is_active_sidebar( 'sidebar-1' ) ) {
-	return;
-}
-?>
+if ( ! is_active_sidebar( 'sidebar-1' ) ) { ?>
+		</div><!--  .row -->
+	</div><!--  .container -->
+<?php } ?>
 
-<div id="secondary" class="widget-area col-md-4 col-lg-4" role="complementary">
-	
-		<?php dynamic_sidebar( 'sidebar-1' ); ?>
-	
-</div><!-- #secondary -->
+		<aside id="secondary" class="widget-area" role="complementary">
+			<?php dynamic_sidebar( 'sidebar-1' ); ?>
+		</aside><!-- #secondary -->
+
+	</div><!--  .row -->
+</div><!--  .container -->
+
 
 

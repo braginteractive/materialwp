@@ -1,0 +1,22 @@
+.widget {
+	margin: 0 0 2em;
+
+	/* Make sure select elements fit in widgets. */
+	select {
+		max-width: 100%;
+	}
+
+	#wp-calendar {
+		width: 100%;
+	}
+
+	ul {
+		padding-left: 0;
+    	list-style: none;
+		margin-bottom: 0;
+	}
+
+	.tagcloud a {
+		margin-bottom: .5rem;
+	}
+}

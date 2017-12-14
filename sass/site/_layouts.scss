@@ -1,0 +1,37 @@
+/*--------------------------------------------------------------
+# Content on Left with Sidebar on Right
+--------------------------------------------------------------*/
+.content-area {
+	@include make-col-ready();
+	
+	@include media-breakpoint-up(sm) {
+	   @include make-col(12);
+	}
+	
+	@include media-breakpoint-up(md) {
+	   @include make-col(8);
+	}	
+}
+
+.widget-area {
+	@include make-col-ready();
+
+    @include media-breakpoint-up(sm) {
+	   @include make-col(12);
+	}
+
+	@include media-breakpoint-up(md) {
+	   @include make-col(4);
+	}  
+}
+
+/*--------------------------------------------------------------
+# Full Width Content
+--------------------------------------------------------------*/
+.content-area-full {
+	@include make-col-ready();
+	
+	@include media-breakpoint-up(sm) {
+	   @include make-col(12);
+	}	
+}

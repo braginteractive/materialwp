@@ -2,22 +2,10 @@
 /**
  * Custom functions that act independently of the theme templates
  *
- * Eventually, some of the functionality here could be replaced by core features
+ * Eventually, some of the functionality here could be replaced by core features.
  *
- * @package materialwp
+ * @package MaterialWP
  */
-
-/**
- * Get our wp_nav_menu() fallback, wp_page_menu(), to show a home link.
- *
- * @param array $args Configuration arguments.
- * @return array
- */
-function materialwp_page_menu_args( $args ) {
-	$args['show_home'] = true;
-	return $args;
-}
-add_filter( 'wp_page_menu_args', 'materialwp_page_menu_args' );
 
 /**
  * Adds custom classes to the array of body classes.
@@ -31,169 +19,40 @@ function materialwp_body_classes( $classes ) {
 		$classes[] = 'group-blog';
 	}
 
+	// Adds a class of hfeed to non-singular pages.
+	if ( ! is_singular() ) {
+		$classes[] = 'hfeed';
+	}
+
 	return $classes;
 }
 add_filter( 'body_class', 'materialwp_body_classes' );
 
-if ( version_compare( $GLOBALS['wp_version'], '4.1', '<' ) ) :
-	/**
-	 * Filters wp_title to print a neat <title> tag based on what is being viewed.
-	 *
-	 * @param string $title Default title text for current view.
-	 * @param string $sep Optional separator.
-	 * @return string The filtered title.
-	 */
-	function mdlwp_wp_title( $title, $sep ) {
-		if ( is_feed() ) {
-			return $title;
-		}
-
-		global $page, $paged;
-
-		// Add the blog name.
-		$title .= get_bloginfo( 'name', 'display' );
-
-		// Add the blog description for the home/front page.
-		$site_description = get_bloginfo( 'description', 'display' );
-		if ( $site_description && ( is_home() || is_front_page() ) ) {
-			$title .= " $sep $site_description";
-		}
-
-		// Add a page number if necessary.
-		if ( ( $paged >= 2 || $page >= 2 ) && ! is_404() ) {
-			$title .= " $sep " . sprintf( esc_html__( 'Page %s', 'mdlwp' ), max( $paged, $page ) );
-		}
-
-		return $title;
-	}
-	add_filter( 'wp_title', 'mdlwp_wp_title', 10, 2 );
-
-	/**
-	 * Title shim for sites older than WordPress 4.1.
-	 *
-	 * @link https://make.wordpress.org/core/2014/10/29/title-tags-in-4-1/
-	 * @todo Remove this function when WordPress 4.3 is released.
-	 */
-	function mdlwp_render_title() {
-		?>
-		<title><?php wp_title( '|', true, 'right' ); ?></title>
-		<?php
-	}
-	add_action( 'wp_head', 'mdlwp_render_title' );
-endif;
-
 /**
- * Sets the authordata global when viewing an author archive.
- *
- * This provides backwards compatibility with
- * http://core.trac.wordpress.org/changeset/25574
- *
- * It removes the need to call the_post() and rewind_posts() in an author
- * template to print information about the author.
- *
- * @global WP_Query $wp_query WordPress Query object.
- * @return void
+ * Add a pingback url auto-discovery header for singularly identifiable articles.
  */
-function materialwp_setup_author() {
-	global $wp_query;
-
-	if ( $wp_query->is_author() && isset( $wp_query->post ) ) {
-		$GLOBALS['authordata'] = get_userdata( $wp_query->post->post_author );
+function materialwp_pingback_header() {
+	if ( is_singular() && pings_open() ) {
+		echo '<link rel="pingback" href="', esc_url( get_bloginfo( 'pingback_url' ) ), '">';
 	}
 }
-add_action( 'wp', 'materialwp_setup_author' );
+add_action( 'wp_head', 'materialwp_pingback_header' );
+
 
 /**
- * Adds a class to the previous post link on single post page
+ * Add Bootstrap button classes to tag cloud
  */
-function post_link_attributes_prev($output) {
-    $code = 'class="btn btn-warning btn-fab btn-raised mdi-image-navigate-before"';
-    return str_replace('<a href=', '<a '.$code.' href=', $output);
+function materialwp_tag_cloud_btn( $return ) {
+	$return = str_replace('<a', '<a class="btn btn-raised btn-secondary"', $return );
+	return $return;
 }
-add_filter('previous_post_link', 'post_link_attributes_prev');
+add_filter( 'wp_tag_cloud', 'materialwp_tag_cloud_btn' );
+
 
 /**
- * Adds a class to the next post link on single post page
- */
-function post_link_attributes_next($output) {
-    $code = 'class="btn btn-warning btn-fab btn-raised mdi-image-navigate-next"';
-    return str_replace('<a href=', '<a '.$code.' href=', $output);
+ * Customize the Read More Button
+**/
+function materialwp_modify_read_more_link() {
+    return '<a class="more-link btn btn-raised btn-secondary" href="' . get_permalink() . '">Read More</a>';
 }
-add_filter('next_post_link', 'post_link_attributes_next');
-
-/**
- * Adds a class to the prev post link on blog
- */
-function posts_link_attributes_prev() {
-    return 'class="btn btn-warning btn-fab btn-raised mdi-image-navigate-before"';
-}
-add_filter('previous_posts_link_attributes', 'posts_link_attributes_prev');
-
-/**
- * Adds a class to the next post link on blog
- */
-function posts_link_attributes_next() {
-    return 'class="btn btn-warning btn-fab btn-raised mdi-image-navigate-next"';
-}
-add_filter('next_posts_link_attributes', 'posts_link_attributes_next');
-
-/**
- * Custom Read More Button
- */
-function modify_read_more_link() {
-
-	return '<p><a class="read-more" href="' . get_permalink() . '">'.__( 'Read More', 'materialwp' ).'</a></p>';
-}
-add_filter( 'the_content_more_link', 'modify_read_more_link' );
-
-/**
- * Custom Edit Button
- */
-function custom_edit_post_link($output) {
-
- $output = str_replace('class="post-edit-link"', 'class="btn btn-danger btn-xs post-edit-link"', $output);
- return $output;
-}
-add_filter('edit_post_link', 'custom_edit_post_link');
-
-/**
- * Return classes for sidebar option
- *
- * @since  0.0.4
- */
-function materialwp_sidebar_layout() {
-
-	$sidebar_layout = get_theme_mod( 'sidebar_layout' );
-
-	if ( $sidebar_layout == 'with_sidebar' ) {
-		return 'col-sm-8';
-	} else {
-		return 'col-sm-12';
-	}
-
-}
-
-/**
- * Return classes for layout columns
- *
- * @since  0.0.4
- */
-function materialwp_archive_layout_columns( $classes, $class, $post_id ) {
-
-	$archive_layout = get_theme_mod( 'archive_layout' );
-
-	if ( $archive_layout == 'column_4' ) {
-		$classes[] = 'col-sm-3';
-	} elseif ( $archive_layout == 'column_3' ) {
-		$classes[] = 'col-sm-4';
-	} elseif ( $archive_layout == 'column_2' ) {
-		$classes[] = 'col-sm-6';
-	} else {
-		$classes[] = 'col-sm-12';
-	}
-
-    // Return the classes array
-    return $classes;
-
-}
-add_filter( 'post_class', 'materialwp_archive_layout_columns', 10, 3 );
+add_filter( 'the_content_more_link', 'materialwp_modify_read_more_link' );

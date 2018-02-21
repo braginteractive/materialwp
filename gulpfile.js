@@ -10,6 +10,7 @@ var gulp = require( 'gulp' ),
   notify = require( 'gulp-notify' ),
   include = require( 'gulp-include' ),
   tildeImporter = require('node-sass-tilde-importer'),
+  sourcemaps = require('gulp-sourcemaps'),
   sass = require( 'gulp-sass' ),
   imageoptim = require('gulp-imageoptim'),
   browserSync = require('browser-sync').create(),
@@ -116,8 +117,10 @@ options.sassmin = {
 gulp.task('sass', function() {
     return gulp.src('./sass/style.scss')
         .pipe(plumber())
+        .pipe(sourcemaps.init())
         .pipe(sass(options.sass).on('error', sass.logError))
         .pipe(autoprefixer())
+        .pipe(sourcemaps.write())
         .pipe(gulp.dest('.'))
         .pipe(browserSync.reload({stream: true}))
         .pipe(notify({ title: 'Sass', message: 'sass task complete'  }));
@@ -127,8 +130,10 @@ gulp.task('sass', function() {
 gulp.task('sass-min', function() {
     return gulp.src('./sass/style.scss')
         .pipe(plumber())
+        .pipe(sourcemaps.init())
         .pipe(sass(options.sassmin).on('error', sass.logError))
         .pipe(autoprefixer())
+        .pipe(sourcemaps.write())
         .pipe(rename( { suffix: '.min' } ) )
         .pipe(gulp.dest('.'))
         .pipe(browserSync.reload({stream: true}))

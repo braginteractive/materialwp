@@ -47,6 +47,11 @@ Check out other Material Design WordPress themes and templates over at [Material
 
 ## Releases
 
+0.0.6
+- update to Bootstrap 4 
+- add home template -hard coded
+- add cards to posts/pages and widgets
+
 0.0.5
 - update to Bootstrap 4 Beta 2
 - drop bower for npm

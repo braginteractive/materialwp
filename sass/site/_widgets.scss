@@ -1,5 +1,6 @@
+/* Any Widget */
 .widget {
-	margin: 0 0 2em;
+	margin: 0 0 2rem;
 
 	/* Make sure select elements fit in widgets. */
 	select {
@@ -10,13 +11,57 @@
 		width: 100%;
 	}
 
+	.card-header {
+		font-size: 1.25rem;
+	}
+
+	.tagcloud,
+	.textwidget,
+	.calendar_wrap {
+		padding: $card-spacer-x;
+	}
+
 	ul {
-		padding-left: 0;
-    	list-style: none;
+		padding: 0;
 		margin-bottom: 0;
+		list-style: none;
+	}
+
+	&.widget_search {
+	  border: none;
+	  box-shadow: none;
+	  background-color: transparent;
 	}
 
 	.tagcloud a {
 		margin-bottom: .5rem;
+	}
+}
+
+/* Sidebar */
+.widget-area {
+	.widget {
+		ul {
+			padding: 0;
+			margin-bottom: 0;
+			list-style: none;
+
+			li {
+				padding: .5rem 1.25rem;
+				border-bottom: 1px solid rgba($black,.125);
+
+				a {
+					text-decoration: none;
+				}
+
+				&:last-child {
+					border-bottom: 0;
+				}
+
+				&:hover {
+					background-color: $gray-100;
+				}
+			}
+		}
 	}
 }

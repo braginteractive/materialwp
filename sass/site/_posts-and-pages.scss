@@ -67,6 +67,10 @@
 	justify-content: space-between;
 }
 
+.post-navigation {
+  margin: 2rem 0;
+}
+
 /* Screenreaders */
 .screen-reader-text {
 	@include sr-only;
@@ -78,6 +82,44 @@
 		@include make-col-ready();
 		@include make-col(12);	
 	}
+}
+
+
+.home {
+  .site-header {
+    margin-bottom: 0;
+  }
+  .home-hero {
+    text-align: center;
+    color: $white;
+    background-color: #3f51b5;
+    padding: 5rem 0;
+    margin-bottom: 4rem;
+
+    h1 {
+      font-size: 5rem;
+    }
+
+    .lead {
+      margin-bottom: 3rem;
+    }
+
+    a {
+      color: #ffa726;
+    }
+  }
+
+  .columns {
+    text-align: center;
+
+    h2 {
+      margin-bottom: 3rem;
+    }
+
+    .lead {
+      margin-top: 8rem;
+    }
+  }
 }
 
 

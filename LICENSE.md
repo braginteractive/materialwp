@@ -33,4 +33,4 @@ SOFTWARE.
 ____________________________________
 
 
-MaterialWP Theme Copyright (C) 2014+ Brad Williams falls under the WordPress GPL https://wordpress.org/about/gpl/
+MaterialWP Theme Copyright (C) 2014+ Brad Williams falls under the WordPress GPL https://wordpress.org/about/license/
